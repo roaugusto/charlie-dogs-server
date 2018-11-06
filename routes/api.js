@@ -163,7 +163,7 @@ router.get('/searchAnimal', (req, res) => {
     let query = req.query.query
     let filhotes = []
 
-    Animal.find({ raca: { $regex: query + '.*', $options: 'i' } }, (err, animals) => {
+    Animal.find({ raca: { $regex: query + '.*', $options: 'i' }, status: "A" }, (err, animals) => {
         animals.forEach(animal => {
             filhotes.push(animal);
         })
